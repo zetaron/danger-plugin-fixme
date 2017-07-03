@@ -25,13 +25,15 @@ describe("fixme()", () => {
     global.danger = {
       git: {
         modified_files: ["path/to/tests/index.test.js"],
-        created_files: ["path/to/tests/new.index.test.js"],
+        created_files: ["path/to/tests/new.index.test.js", "tests/subdirectory/myTest.js"],
       },
     }
 
     fixme()
 
     expect(global.fail).toHaveBeenCalledWith("a `FIXME` was left in: path/to/tests/index.test.js")
+    expect(global.fail).toHaveBeenCalledWith("a `FIXME` was left in: path/to/tests/new.index.test.js")
+    expect(global.fail).not.toHaveBeenCalledWith("a `TODO` was left in: tests/subdirectory/myTest.js")
   })
 
   it("allows to set custom pattern", () => {
