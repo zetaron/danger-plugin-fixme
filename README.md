@@ -22,6 +22,15 @@ import fixme from 'danger-plugin-fixme'
 
 fixme()
 ```
+
+or with custom patterns:
+```js
+// dangerfile.js
+import fixme from 'danger-plugin-fixme'
+
+fixme(['FIXME', 'TODO'])
+```
+
 ## Changelog
 
 See the GitHub [release history](https://github.com/zetaron/danger-plugin-fixme/releases).
